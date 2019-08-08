@@ -1,0 +1,189 @@
+﻿<Page
+	x:Class="Word_of_the_day.Views.Setting"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:Word_of_the_day.Views"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewmodels="clr-namespace:Word_of_the_day.ViewModels"
+	xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+	d:DesignHeight="395"
+	d:DesignWidth="600"
+	Background="#FFEEEEEE"
+	Foreground="Black"
+	mc:Ignorable="d">
+	<Page.DataContext>
+		<viewmodels:SettingViewModel />
+	</Page.DataContext>
+	<Grid>
+		<Border
+			Margin="10,27,400,328"
+			Padding="5,2"
+			Background="White"
+			CornerRadius="5">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="45*" />
+					<ColumnDefinition Width="139*" />
+				</Grid.ColumnDefinitions>
+				<ToggleButton
+					x:Name="AutoRunToggleButton"
+					Width="34"
+					Height="17.554"
+					Margin="0,8.723"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Background="#FF026E16"
+					BorderBrush="#FFBBBBBB"
+					Foreground="#FF026E16"
+					IsChecked="{Binding Autorun}"
+					Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+
+				<TextBlock
+					Grid.Column="1"
+					Height="25.96"
+					Margin="0,5.02"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Background="{x:Null}"
+					Foreground="Black"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}">
+					Run with Windows
+				</TextBlock>
+
+			</Grid>
+		</Border>
+
+		<Border
+			Margin="10,81,400,274"
+			Padding="5,2"
+			Background="White"
+			CornerRadius="5">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="45*" />
+					<ColumnDefinition Width="139*" />
+				</Grid.ColumnDefinitions>
+				<ToggleButton
+					x:Name="LaunchMinimizedToggleButton"
+					Width="34"
+					Height="17.554"
+					Margin="0,8.723"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Background="#FF026E16"
+					BorderBrush="#FFBBBBBB"
+					Foreground="#FF026E16"
+					IsChecked="{Binding LaunchMinimized}"
+					Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+
+				<TextBlock
+					Grid.Column="1"
+					Height="25.96"
+					Margin="0,5.02"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Background="{x:Null}"
+					Foreground="Black"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}">
+					Launch minimized
+				</TextBlock>
+
+			</Grid>
+		</Border>
+
+		<Border Margin="10,136,400,66" Background="#FFFDFDFD">
+
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="33*" />
+					<RowDefinition Height="113*" />
+				</Grid.RowDefinitions>
+
+				<materialDesign:Card Padding="32" materialDesign:ShadowAssist.ShadowDepth="Depth2" />
+				<TextBlock
+					Width="190"
+					Height="33"
+					Padding="5"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Background="White"
+					Foreground="Black"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}">
+					<materialDesign:PackIcon VerticalContentAlignment="Center" Kind="ColorLens" />
+					Theme notification
+				</TextBlock>
+
+				<ListBox
+					Grid.Row="1"
+					Width="188"
+					Margin="5,8.56,0,8.56"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Background="{x:Null}"
+					BorderBrush="Black"
+					Foreground="Black"
+					IsEnabled="True"
+					SelectedIndex="{Binding Theme}">
+					<TextBlock>
+						White
+					</TextBlock>
+					<TextBlock>
+						Black
+					</TextBlock>
+					<TextBlock>
+						Red
+					</TextBlock>
+					<TextBlock>
+						Blue
+					</TextBlock>
+				</ListBox>
+				<Button
+					Grid.Row="1"
+					Width="190"
+					Margin="0,0,0,-42"
+					HorizontalAlignment="Right"
+					VerticalAlignment="Bottom"
+					materialDesign:RippleAssist.Feedback="#FF101011"
+					Background="White"
+					BorderBrush="{x:Null}"
+					Command="{Binding DemoNotifications}"
+					Foreground="#E5000000"
+					Style="{StaticResource MaterialDesignRaisedAccentButton}"
+					ToolTip="Show test notification">
+					Demo notifications
+				</Button>
+			</Grid>
+		</Border>
+
+		<materialDesign:Chip
+			Margin="15"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			Command="{Binding GitHub}"
+			Content="github.com/NeluQi"
+			Foreground="Black"
+			IconBackground="#FF24292E"
+			IconForeground="{DynamicResource PrimaryHueDarkForegroundBrush}">
+			<materialDesign:Chip.Icon>
+				<materialDesign:PackIcon Kind="GithubBox" />
+			</materialDesign:Chip.Icon>
+		</materialDesign:Chip>
+
+
+		<Image
+			Width="258"
+			Height="259"
+			Margin="274,39,68,97"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Source="/Sigma;component/Resource/pic/logos.png" />
+
+
+
+
+	</Grid>
+
+</Page>

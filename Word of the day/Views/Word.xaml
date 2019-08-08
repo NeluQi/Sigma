@@ -1,0 +1,203 @@
+﻿<Page
+	x:Class="Word_of_the_day.Views.Word"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:Word_of_the_day.Views"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:materialDesignColors="clr-namespace:MaterialDesignColors;assembly=MaterialDesignColors"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewmodels="clr-namespace:Word_of_the_day.ViewModels"
+	xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+	d:DesignHeight="395"
+	d:DesignWidth="600"
+	Background="#FFEEEEEE"
+	Foreground="Black"
+	mc:Ignorable="d">
+	<Page.DataContext>
+		<viewmodels:WordViewModel />
+	</Page.DataContext>
+	<Grid>
+
+		<Border Margin="10,19,404,270" Background="White">
+			<Grid>
+				<materialDesign:Card
+					Height="106"
+					Padding="32"
+					materialDesign:ShadowAssist.ShadowDepth="Depth2" />
+				<TextBlock
+					Width="166"
+					Margin="10,0"
+					Padding="0,10,0,0"
+					HorizontalAlignment="Center"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}"><Run Text="         " /><Run Text="Word Timeout " /><LineBreak /><Run Text="            " /><Run Text="(Minutes)" /></TextBlock>
+				<TextBox
+					Width="121"
+					Margin="0,0,0,5"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Bottom"
+					materialDesign:HintAssist.Hint="Timeout words"
+					BorderBrush="#E5000000"
+					CaretBrush="#FF040405"
+					SelectionBrush="#FF101011"
+					Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+					Text="{Binding Timeout}" />
+			</Grid>
+		</Border>
+		<Border Margin="404,19,10,270" Background="White">
+			<Grid>
+				<wpf:Card
+					Height="106"
+					Padding="32"
+					wpf:ShadowAssist.ShadowDepth="Depth2" />
+				<TextBlock
+					Width="166"
+					Margin="10,0"
+					Padding="0,10,0,0"
+					HorizontalAlignment="Center"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}"><Run Text="Notification Time Display " /><LineBreak /><Run Text="           " /><Run Text="(Seconds)" /></TextBlock>
+				<TextBox
+					Width="121"
+					Margin="0,0,0,5"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Bottom"
+					wpf:HintAssist.Hint="Timeout words"
+					BorderBrush="#E5000000"
+					CaretBrush="#FF040405"
+					SelectionBrush="#FF101011"
+					Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+					Text="{Binding TimeDisplay}" />
+			</Grid>
+		</Border>
+
+		<Border
+			Width="186"
+			Margin="0,19,0,270"
+			Background="White"
+			ToolTip="The displayed words will not be removed from the list">
+			<Grid VerticalAlignment="Bottom">
+				<wpf:Card
+					Height="106"
+					Padding="32"
+					wpf:ShadowAssist.ShadowDepth="Depth2" />
+				<TextBlock
+					Width="166"
+					Margin="10,0"
+					Padding="0,10,0,0"
+					HorizontalAlignment="Center"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}"><Run Text="     Repetition of words " /><LineBreak /><Run Text="                Mode" /></TextBlock>
+				<ToggleButton
+					x:Name="AdvancedLearnToggleButton"
+					Width="46"
+					Height="30.554"
+					Margin="0,0,0,24"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Bottom"
+					IsChecked="{Binding Advancedlearning}"
+					Style="{StaticResource MaterialDesignSwitchToggleButton}" />
+			</Grid>
+		</Border>
+
+
+		<Button
+			Width="166"
+			Margin="0,0,413,233"
+			Padding="8,4"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			materialDesign:RippleAssist.Feedback="#FF101011"
+			Background="White"
+			BorderBrush="{x:Null}"
+			Command="{Binding Editdictionary}"
+			Foreground="#E5000000"
+			Style="{StaticResource MaterialDesignRaisedAccentButton}"
+			ToolTip="You can edit the dictionary of words. &#10;Dictionary structure:&#10; WORD = TRANSLATION&#10; WORD = TRANSLATION&#10; ...&#10; 1 line - 1 pair of words">
+			<Grid>
+				<materialDesign:PackIcon
+					Width="19"
+					Height="19.95"
+					Margin="-29.25,0,0,0"
+					Kind="ProfessionalHexagon" />
+				<TextBlock
+					Width="109.743"
+					Margin="0,0,-15,0"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+					TextAlignment="Center">
+					Edit dictionary
+				</TextBlock>
+			</Grid>
+		</Button>
+		<Button
+			Width="166"
+			Margin="0,0,19,233"
+			Padding="8,4"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			wpf:RippleAssist.Feedback="#FF101011"
+			Background="White"
+			BorderBrush="{x:Null}"
+			Command="{Binding Resetdictionary}"
+			Foreground="#E5000000"
+			Style="{StaticResource MaterialDesignRaisedAccentButton}"
+			ToolTip="Restore the standard English-Russian dictionary">
+			<Grid>
+				<wpf:PackIcon
+					Width="19"
+					Height="19.95"
+					Margin="-29.25,0,0,0"
+					Kind="ProfessionalHexagon" />
+				<TextBlock
+					Width="109.743"
+					Margin="0,0,-15,0"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+					TextAlignment="Center"><Run Text="Reset dictionary" /></TextBlock>
+			</Grid>
+		</Button>
+		<Button
+			Width="166"
+			Margin="0,0,216,27"
+			Padding="8,4"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			wpf:RippleAssist.Feedback="#FF101011"
+			Background="White"
+			BorderBrush="{x:Null}"
+			Command="{Binding Resetusedword}"
+			Foreground="#E5000000"
+			Style="{StaticResource MaterialDesignRaisedAccentButton}"
+			ToolTip="Transfer all already learned words back to unstudied ones (Transfer from the dictionary of shown words back to the dictionary of not shown)">
+			<Grid>
+				<wpf:PackIcon
+					Width="19"
+					Height="19.95"
+					Margin="-29.25,0,0,0"
+					Kind="ProfessionalHexagon" />
+				<TextBlock
+					Width="109.743"
+					Margin="0,0,-15,0"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Style="{StaticResource MaterialDesignSubheadingTextBlock}"
+					TextAlignment="Center"><Run Text="Reset used word" /></TextBlock>
+			</Grid>
+		</Button>
+		<Image
+			Margin="442,241,-14,0"
+			RenderOptions.BitmapScalingMode="HighQuality"
+			RenderTransformOrigin="0.5,0.5"
+			Source="/Sigma;component/Resource/pic/hate.png" />
+
+
+		<materialDesign:Snackbar
+			x:Name="SnackbarFive"
+			HorizontalAlignment="Stretch"
+			IsActive="{Binding Snackbar}">
+			<materialDesign:SnackbarMessage Content="Successfully" />
+		</materialDesign:Snackbar>
+
+	</Grid>
+</Page>

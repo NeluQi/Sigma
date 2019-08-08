@@ -1,0 +1,165 @@
+﻿<Window
+	x:Class="Word_of_the_day.MainWindow"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:dxmvvm="clr-namespace:DevExpress.Mvvm.UI;assembly=DevExpress.Mvvm.UI"
+	xmlns:local="clr-namespace:Word_of_the_day"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewmodels="clr-namespace:Word_of_the_day.ViewModels"
+	Title="Sigma"
+	Width="600"
+	Height="500"
+	Icon="/Sigma;component/Resource/pic/icon.ico"
+	RenderOptions.ClearTypeHint="Auto"
+	ResizeMode="NoResize"
+	TextOptions.TextFormattingMode="Ideal"
+	WindowStartupLocation="CenterScreen"
+	WindowStyle="None"
+	mc:Ignorable="d">
+
+	<Window.DataContext>
+		<viewmodels:MainViewModel />
+	</Window.DataContext>
+
+	<Window.Resources>
+		<dxmvvm:ObjectToObjectConverter x:Key="PageConverter">
+			<dxmvvm:MapItem Source="Stat" Target="True" />
+			<dxmvvm:MapItem Source="Yellow" Target="Steady" />
+			<dxmvvm:MapItem Source="Green" Target="Go" />
+		</dxmvvm:ObjectToObjectConverter>
+	</Window.Resources>
+
+
+
+	<Grid>
+
+		<Frame
+			Margin="0,105,0,0"
+			Content="{Binding SelectPage}"
+			NavigationUIVisibility="Hidden" />
+
+
+
+		<Grid
+			Width="600"
+			Height="105"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Top"
+			Background="#FF101011"
+			MouseDown="Grid_MouseDown">
+			<Grid.Effect>
+				<DropShadowEffect
+					Direction="-90"
+					Opacity="0.3"
+					ShadowDepth="5"
+					Color="Black" />
+			</Grid.Effect>
+
+			<Button
+				x:Name="WindowClose"
+				Width="29.458"
+				Height="17.397"
+				Margin="0,5,5,0"
+				Padding="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top"
+				Background="#FFE22F2F"
+				BorderBrush="#FFE22F2F"
+				Click="WindowClose_Click"
+				Style="{StaticResource MaterialDesignRaisedAccentButton}">
+				<materialDesign:PackIcon
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Kind="Close" />
+			</Button>
+			<Button
+				x:Name="WindowMinimize"
+				Width="30"
+				Height="17"
+				Margin="0,5,39,0"
+				Padding="0"
+				HorizontalAlignment="Right"
+				VerticalAlignment="Top"
+				Background="White"
+				BorderBrush="White"
+				Click="WindowMinimize_Click"
+				Style="{StaticResource MaterialDesignRaisedAccentButton}"
+				ToolTip="Minimize to tray">
+				<materialDesign:PackIcon
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Kind="WindowMinimize" />
+			</Button>
+
+			<Border
+				Width="329"
+				Margin="0"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Bottom"
+				Background="#FF1A1A1D"
+				CornerRadius="40,40,0,0"
+				SnapsToDevicePixels="True">
+				<StackPanel
+					Margin="4"
+					HorizontalAlignment="Center"
+					Orientation="Horizontal">
+					<RadioButton
+						Margin="4"
+						BorderBrush="White"
+						Command="{Binding SelectStatPage}"
+						Content="Statistics"
+						Foreground="White"
+						IsChecked="True"
+						Style="{StaticResource MaterialDesignTabRadioButton}" />
+					<RadioButton
+						Margin="4"
+						Background="{x:Null}"
+						BorderBrush="White"
+						Command="{Binding SelectWordPage}"
+						Content="Word"
+						Foreground="White"
+						IsChecked="False"
+						Style="{StaticResource MaterialDesignTabRadioButton}" />
+					<RadioButton
+						Margin="4"
+						Background="{x:Null}"
+						BorderBrush="White"
+						Command="{Binding SelectSettingPage}"
+						Content="Setting"
+						Foreground="White"
+						IsChecked="False"
+						Style="{StaticResource MaterialDesignTabRadioButton}" />
+				</StackPanel>
+
+
+			</Border>
+
+			<Label
+				Width="338.146"
+				Height="48"
+				Margin="130.427,0,131.427,0"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				HorizontalContentAlignment="Center"
+				Background="{x:Null}"
+				Content="Sigma - word of the day"
+				FontFamily="Segoe UI Light"
+				FontSize="25"
+				Opacity="0.7">
+				<Label.Foreground>
+					<LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+						<GradientStop Offset="0.41" Color="White" />
+						<GradientStop Offset="0.996" Color="#FF585B68" />
+					</LinearGradientBrush>
+				</Label.Foreground>
+			</Label>
+
+
+		</Grid>
+
+
+	</Grid>
+
+</Window>

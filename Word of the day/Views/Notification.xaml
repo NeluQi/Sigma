@@ -1,0 +1,130 @@
+﻿<Window
+	x:Class="Word_of_the_day.Views.Notification"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="clr-namespace:Word_of_the_day.Views"
+	xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:viewmodels="clr-namespace:Word_of_the_day.ViewModels"
+	Title="Notification"
+	Width="700"
+	Height="180"
+	AllowsTransparency="True"
+	Background="{x:Null}"
+	Deactivated="Window_Deactivated"
+	Focusable="False"
+	FocusableChanged="Window_FocusableChanged"
+	Foreground="{x:Null}"
+	IsEnabled="False"
+	Left="{Binding X, Mode=TwoWay}"
+	Loaded="Window_Loaded"
+	ResizeMode="NoResize"
+	ShowActivated="False"
+	ShowInTaskbar="False"
+	TextOptions.TextFormattingMode="Display"
+	Top="{Binding Y, Mode=TwoWay}"
+	WindowStyle="None"
+	mc:Ignorable="d">
+
+	<Window.DataContext>
+		<viewmodels:NotificationViewModel />
+	</Window.DataContext>
+
+	<Grid
+		Width="700"
+		Height="180"
+		Opacity="0.95">
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
+		<Ellipse
+			Grid.ColumnSpan="2"
+			Width="{Binding Width}"
+			Height="{Binding Height}"
+			Margin="0"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			Fill="{Binding ColorBG}" />
+
+		<Label
+			Grid.RowSpan="2"
+			Grid.ColumnSpan="2"
+			Margin="{Binding MarginWord}"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="{x:Null}"
+			BorderThickness="3"
+			Content="{Binding ContentWord}"
+			FontSize="28"
+			Foreground="{Binding ColorText}"
+			Opacity="{Binding OpWord}" />
+
+		<Line
+			Opacity="{Binding OpLine}"
+			Stroke="{Binding ColorText}"
+			X1="349"
+			X2="349"
+			Y2="180" />
+		<Line
+			Opacity="{Binding OpLine}"
+			Stroke="{Binding ColorText}"
+			X1="350"
+			X2="350"
+			Y2="180" />
+
+		<Label
+			Grid.Column="1"
+			HorizontalAlignment="Center"
+			VerticalAlignment="Center"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			Background="{x:Null}"
+			Content="{Binding ContentTran}"
+			FontSize="28"
+			Foreground="{Binding ColorText}"
+			Opacity="{Binding OpLine}" />
+
+		<ProgressBar
+			Width="250"
+			Margin="0"
+			HorizontalAlignment="Right"
+			VerticalAlignment="Bottom"
+			materialDesign:TransitionAssist.DisableTransitions="True"
+			Background="{x:Null}"
+			BorderBrush="{x:Null}"
+			Foreground="{Binding ColorText}"
+			Maximum="100"
+			Opacity="{Binding OpLine}"
+			RenderTransformOrigin="0.5,0.5"
+			Value="{Binding Progress}">
+			<ProgressBar.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform />
+					<SkewTransform />
+					<RotateTransform Angle="-180" />
+					<TranslateTransform />
+				</TransformGroup>
+			</ProgressBar.RenderTransform>
+		</ProgressBar>
+		<ProgressBar
+			Grid.Column="2"
+			Width="250"
+			Margin="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Bottom"
+			materialDesign:TransitionAssist.DisableTransitions="True"
+			Background="{x:Null}"
+			BorderBrush="{x:Null}"
+			Foreground="{Binding ColorText}"
+			Maximum="100"
+			Opacity="{Binding OpLine}"
+			Value="{Binding Progress}" />
+
+	</Grid>
+</Window>
