@@ -31,23 +31,38 @@ The dictionary of shown words (DictUsed.bin file) stores already shown words. In
 
 ## Preview
 
- 
 ![](https://i.imgur.com/ddigjbB.png)
+
 ------------
+
 ![](https://i.imgur.com/EVqFQfP.png)
+
 ------------
+
 ![](https://i.imgur.com/XAgau3K.png)
+
 ------------
+
 ![](https://i.imgur.com/NY7WlKG.gif)
+
 ------------
+
 ![](https://i.imgur.com/pwNsVzT.gif)
+
 ------------
+
 ![](https://i.imgur.com/Wk0GFPP.gif)
+
 ------------
+
 ![](https://i.imgur.com/qBMBTZF.gif)
+
 ------------
+
 ![](https://i.imgur.com/LR3qX3B.gif)
+
 ------------
+
 ![](https://i.imgur.com/HZeojjJ.gif)
 
 
