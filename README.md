@@ -26,7 +26,9 @@ The program displays a notification with the word and its translation every N mi
 The dictionary of words (Dict.bin file) can be edited (However, follow the template (Word = Translation))
 The dictionary of shown words (DictUsed.bin file) stores already shown words. In the settings, you can disable adding to the used dictionary (Words will be repeated).
 
- ## Preview
+
+## Preview
+
  
 ![](https://i.imgur.com/ddigjbB.png)
 ------------
