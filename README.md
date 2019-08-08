@@ -48,9 +48,11 @@ The dictionary of shown words (DictUsed.bin file) stores already shown words. In
 ------------
 ![](https://i.imgur.com/HZeojjJ.gif)
 
+
 ## Credits
 
 * Nelu [@NeluQi](https://github.com/NeluQi/) (Author, Developer)
 
 ## License
+
 Sigma is licensed under [the MIT License](LICENSE).
