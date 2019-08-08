@@ -1,6 +1,6 @@
 # Sigma - Word of the day
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+[![Download](https://img.shields.io/badge/Download-windows-brightgreen.svg)](https://github.com/NeluQi/Sigma/releases)
  ### Russian
 Sigma - это приложение для изучения и заучивания слов. По умолчанию встроен англо-русский словарь (Существует 2 варианта словаря - 8к слов и 1к слов с транскрипцией).
 По желанию можно собрать собственный словарь.
